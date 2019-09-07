@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Tolsee/google-scrape-ui.svg?branch=master)](https://travis-ci.org/Tolsee/google-scrape-ui) [![codecov](https://codecov.io/gh/Tolsee/google-scrape-ui/branch/master/graph/badge.svg)](https://codecov.io/gh/Tolsee/google-scrape-ui)
+
 # Google Scrape UI
 
 React app for google result page scrape. 
