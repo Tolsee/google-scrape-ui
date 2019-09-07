@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component should render app component 1`] = `
+<App>
+  <div>
+    Home
+  </div>
+</App>
+`;
