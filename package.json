@@ -16,6 +16,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "precommit": "lint-staged",
+    "flow": "flow",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
   },
@@ -53,6 +54,13 @@
   "jest": {
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!<rootDir>/node_modules/",
+      "!<rootDir>/src/setupTests.js",
+      "!<rootDir>/src/registerServiceWorker.js",
+      "!<rootDir>/src/stories/**/**"
     ]
   },
   "browserslist": {
