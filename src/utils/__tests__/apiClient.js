@@ -1,6 +1,6 @@
 import { get, post, del, patch, put } from '../apiClient';
 
-const url = path => `${process.env.REACT_APP_API_URL}/${path}`
+const url = path => `${process.env.REACT_APP_API_ENDPOINT}/${path}`;
 
 describe('apiClient', () => {
   beforeEach(() => {

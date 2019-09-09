@@ -1,5 +1,5 @@
 const TOKEN_KEY = '__google_scrape_token__';
-const BASE_URL = process.env.REACT_APP_API_path;
+const BASE_URL = process.env.REACT_APP_API_ENDPOINT;
 
 function request(path, method, { body, ...customConfig } = {}) {
   const token = window.localStorage.getItem(TOKEN_KEY);
