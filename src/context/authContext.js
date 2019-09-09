@@ -121,29 +121,43 @@ function AuthProvider({ children }) {
   const [state, dispatch] = useReducer(authReducer, initialState);
   useEffect(() => {
     (async function() {
-      const user = await authClient.getUser();
-      if (user) dispatch(loginSuccess(user));
+      try {
+        const user = await authClient.getUser();
+        if (user) dispatch(loginSuccess(user));
+        // eslint-disable-next-line no-empty
+      } catch (e) { }
     })()
-  });
+  }, []);
 
   async function handleLogin(form) {
-    dispatch(login());
-    const { status, body } = await authClient.login(form);
-    if (status >= 400) dispatch(loginError(body.error));
-    else dispatch(loginSuccess(body));
+    try {
+      dispatch(login());
+      const { status, body } = await authClient.login(form);
+      if (status >= 400) dispatch(loginError(body.error));
+      else dispatch(loginSuccess(body));
+    } catch (e) {
+      dispatch(loginError());
+    }
   }
 
   async function handleSignup(form) {
     dispatch(signup());
-    const { status, body } = await authClient.singup(form);
-    if (status >= 400) dispatch(signupError(body.errors));
-    else dispatch(signupSuccess(body));
+    try {
+      const { status, body } = await authClient.singup(form);
+      if (status >= 400) dispatch(signupError(body.errors));
+      else dispatch(signupSuccess(body));
+    } catch (e) {
+      dispatch(signupError());
+    }
   }
 
   async function handleLogout() {
-    dispatch(logout());
-    await authClient.logout();
-    dispatch(logoutSuccess());
+    try {
+      dispatch(logout());
+      await authClient.logout();
+      dispatch(logoutSuccess());
+      // eslint-disable-next-line no-empty
+    } catch (e) { }
   }
 
   return (
