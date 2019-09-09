@@ -28,7 +28,7 @@ function LoginForm(props: FormProps) {
     });
   }
 
-  const buttonText = type === 'login' ? 'Log in ' : 'Sign up';
+  const buttonText = type === 'login' ? 'Log in' : 'Sign up';
   const linkText = type === 'login' ? 'register now!' : 'log in!';
   const link = type === 'login' ? '/signup' : '/login';
   return (
