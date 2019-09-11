@@ -4,8 +4,8 @@
 
 React app for google result page scrape. 
 
-API: https://github.com/Tolsee/google-scrape-api
-Demo: https://desolate-sierra-98374.herokuapp.com
+* API: https://github.com/Tolsee/google-scrape-api
+* Demo: https://desolate-sierra-98374.herokuapp.com
 
 ## How to start? 
 
