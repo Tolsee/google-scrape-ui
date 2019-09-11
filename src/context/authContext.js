@@ -120,14 +120,14 @@ function authReducer(state, action) {
 function AuthProvider({ children }) {
   const [state, dispatch] = useReducer(authReducer, initialState);
   useEffect(() => {
-    (async function() {
-      try {
-        const user = await authClient.getUser();
-        if (user) dispatch(loginSuccess(user));
-        // eslint-disable-next-line no-empty
-      } catch (e) { }
-    })()
+    // eslint-disable-next-line no-use-before-define
+    getUser();
   }, []);
+
+  async function getUser() {
+    const user = await authClient.getUser();
+    if (user) dispatch(loginSuccess(user));
+  }
 
   async function handleLogin(form) {
     try {
@@ -152,12 +152,9 @@ function AuthProvider({ children }) {
   }
 
   async function handleLogout() {
-    try {
-      dispatch(logout());
-      await authClient.logout();
-      dispatch(logoutSuccess());
-      // eslint-disable-next-line no-empty
-    } catch (e) { }
+    dispatch(logout());
+    await authClient.logout();
+    dispatch(logoutSuccess());
   }
 
   return (
