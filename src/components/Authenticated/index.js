@@ -9,9 +9,8 @@ import KeywordUpload from 'components/Authenticated/KeywordUpload';
 import Keywords from 'components/Authenticated/Keywords';
 
 const Container = styled.div`
-  height: 100vh;
-  width: 100vw;
   position: relative;
+  background-color: white;
 `;
 
 function Layout({children}) {

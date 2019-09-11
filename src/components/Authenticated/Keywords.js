@@ -8,8 +8,7 @@ import Row from 'antd/lib/row';
 import Col from 'antd/lib/col';
 import Table from 'antd/lib/table';
 import Typography from 'antd/lib/typography';
-
-import Loading from 'components/common/Loading';
+import Button from 'antd/lib/button';
 
 const columns = [
   {
@@ -42,6 +41,14 @@ const Container = styled(Row)`
   margin-top: 24px; 
 `;
 
+const TopBar = styled(Row)`
+  margin: 24px 0 12px;
+`;
+
+const RefreshContainer = styled(Row)`
+  margin: 0 0 12px;
+`;
+
 const { Title } = Typography;
 
 function transformKeywords(keywords) {
@@ -58,19 +65,23 @@ function transformKeywords(keywords) {
 }
 
 export default function Keywords() {
-  const { keywords: { data, loading } } = useKeywords();
-  let dataSource;
+  const { keywords: { data, loading }, getKeywords } = useKeywords();
+  let dataSource = [];
   if (data) dataSource = transformKeywords(data);
 
   return (
     <Container type="flex" justify="center">
       <Col span={20}>
-        <Row type="flex" justify="space-between" align="middle">
+        <TopBar type="flex" justify="space-between" align="middle">
           <Title level={4}>Past Keyword</Title>
-          <Link to="/upload">Upload other csv</Link>
-        </Row>
-        { loading && <Loading /> }
-        { !loading && data && <Table columns={columns} dataSource={dataSource} /> }
+          <Link to="/upload">Upload CSV</Link>
+        </TopBar>
+        <RefreshContainer type="flex" justify="space-between" align="middle">
+          <Button type="primary" icon="sync" loading={loading} onClick={getKeywords}>
+            Refresh
+          </Button>
+        </RefreshContainer>
+        { !loading && <Table columns={columns} dataSource={dataSource} /> }
       </Col>
     </Container>
   );
