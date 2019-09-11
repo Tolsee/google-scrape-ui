@@ -27,6 +27,7 @@ function request(path, method, { body, ...customConfig } = {}) {
       response = r;
       return r.json()
     })
+    .catch(() => null)
     .then(responseBody => ({
       response,
       body: responseBody

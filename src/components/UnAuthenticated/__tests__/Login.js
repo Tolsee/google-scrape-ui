@@ -3,9 +3,8 @@ import { mount } from 'enzyme';
 
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import AppProviders from 'context';
+
 import { AuthContext } from 'context/authContext';
-import { UserProvider } from 'context/userContext';
 
 import Alert from 'antd/lib/alert';
 
