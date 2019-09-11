@@ -41,7 +41,8 @@ function KeywordsProvider({ children }) {
     <KeywordsContext.Provider value={{
       keywords: { data: keywords, loading: keywordsLoading },
       upload: { error: uploadError, loading: uploadLoading, success: uploadSuccess },
-      uploadKeywords
+      uploadKeywords,
+      getKeywords
     }}>
       {children}
     </KeywordsContext.Provider>
