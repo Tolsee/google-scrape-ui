@@ -58,8 +58,8 @@ function transformKeywords(keywords) {
       key: id,
       keyword: currentData.term,
       total_result: currentData.total_results,
-      ad_links: currentData['Link::Ad'],
-      result_links: currentData['Link::Result']
+      ad_links: currentData.ad_link_count,
+      result_links: currentData.result_link_count
     }
   });
 }
